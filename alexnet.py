@@ -5,6 +5,7 @@ from tflearn.layers.core import input_data, dropout, fully_connected
 from tflearn.layers.conv import conv_2d, max_pool_2d
 from tflearn.layers.normalization import local_response_normalization
 from tflearn.layers.estimator import regression
+from tflearn.data_utils import shuffle, to_categorical
 
 from tflearn.datasets import cifar10
 (X, Y), (X_test, Y_test) = cifar10.load_data(one_hot=True,resize_pics=(227,227))
