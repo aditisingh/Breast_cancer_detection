@@ -8,7 +8,7 @@ from tflearn.layers.estimator import regression
 from tflearn.data_utils import shuffle, to_categorical
 
 from tflearn.datasets import cifar10
-(X, Y), (X_test, Y_test) = cifar10.load_data(one_hot=True,resize_pics=(227,227))
+(X, Y), (X_test, Y_test) = cifar10.load_data()
 X, Y = shuffle(X, Y)
 Y = to_categorical(Y, 10)
 Y_test = to_categorical(Y_test, 10)
