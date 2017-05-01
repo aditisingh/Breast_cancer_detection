@@ -6,8 +6,12 @@ from tflearn.layers.conv import conv_2d, max_pool_2d
 from tflearn.layers.normalization import local_response_normalization
 from tflearn.layers.estimator import regression
 
-import tflearn.datasets.oxflower17 as oxflower17
-X, Y = oxflower17.load_data(one_hot=True, resize_pics=(227, 227))
+from tflearn.datasets import cifar10
+(X, Y), (X_test, Y_test) = cifar10.load_data(one_hot=True,resize_pics=(227,227))
+X, Y = shuffle(X, Y)
+Y = to_categorical(Y, 10)
+Y_test = to_categorical(Y_test, 10)
+#X, Y = oxflower17.load_data(one_hot=True, resize_pics=(227, 227))
 
 # Building 'AlexNet'
 network = input_data(shape=[None, 227, 227, 3])
