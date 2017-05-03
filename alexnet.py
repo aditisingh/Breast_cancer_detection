@@ -1,5 +1,3 @@
-from __future__ import division, print_function, absolute_import
-import scipy.io as sio
 import tflearn
 from tflearn.layers.core import input_data, dropout, fully_connected
 from tflearn.layers.conv import conv_2d, max_pool_2d
@@ -7,7 +5,8 @@ from tflearn.layers.normalization import local_response_normalization
 from tflearn.layers.estimator import regression
 from tflearn.data_utils import shuffle, to_categorical
 import numpy as np
-from tflearn.datasets import cifar10
+from __future__ import division, print_function, absolute_import
+import scipy.io as sio
 from sklearn.model_selection import train_test_split
 
 f=sio.loadmat('features.mat')
