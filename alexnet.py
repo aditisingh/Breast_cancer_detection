@@ -44,7 +44,7 @@ network = regression(network, optimizer='momentum',
 
 # Training
 model = tflearn.DNN(network,tensorboard_dir='/uhpc/roysam/aditi/alexnet', checkpoint_path='/uhpc/roysam/aditi/alexnet/model_alexnet',max_checkpoints=1, tensorboard_verbose=2)
-model.fit(X, Y, n_epoch=1000, validation_set=0.1, shuffle=True,
+model.fit(X_train, Y_train, n_epoch=1000, validation_set=0.1, shuffle=True,
           show_metric=True, batch_size=64, snapshot_step=200,
           snapshot_epoch=False, run_id='training')
 
