@@ -1,5 +1,5 @@
 from __future__ import division, print_function, absolute_import
-
+import scipy.io as sio
 import tflearn
 from tflearn.layers.core import input_data, dropout, fully_connected
 from tflearn.layers.conv import conv_2d, max_pool_2d
@@ -10,7 +10,8 @@ import numpy as np
 from tflearn.datasets import cifar10
 from sklearn.model_selection import train_test_split
 
-X=np.load('features.npy')
+f=sio.loadmat('features.mat')
+X=f['features']
 Y=np.load('targets.npy')
 (X_train, Y_train), X_test, Y_test = train_test_split(X,Y,test_size=0.2,random_state=42)
 X_train, Y_train = shuffle(X_train, Y_train)
