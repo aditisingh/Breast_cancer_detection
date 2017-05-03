@@ -14,7 +14,7 @@ f=sio.loadmat('features.mat')
 t=sio.loadmat('targets.mat')
 X=f['features']
 Y=t['targets']
-X_train, Y_train, X_test, Y_test = train_test_split(X,Y,test_size=0.2,random_state=42)
+X_train,  X_test, Y_train, Y_test = train_test_split(X,Y,test_size=0.2,random_state=42)
 X_train, Y_train = shuffle(X_train, Y_train)
 Y_train = to_categorical(Y_train, 8)
 Y_test = to_categorical(Y_test, 8)
