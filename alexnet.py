@@ -1,3 +1,4 @@
+from __future__ import division, print_function, absolute_import
 import tflearn
 from tflearn.layers.core import input_data, dropout, fully_connected
 from tflearn.layers.conv import conv_2d, max_pool_2d
@@ -5,7 +6,6 @@ from tflearn.layers.normalization import local_response_normalization
 from tflearn.layers.estimator import regression
 from tflearn.data_utils import shuffle, to_categorical
 import numpy as np
-from __future__ import division, print_function, absolute_import
 import scipy.io as sio
 from sklearn.model_selection import train_test_split
 
@@ -13,7 +13,7 @@ f=sio.loadmat('features.mat')
 t=sio.loadmat('targets.mat')
 X=f['features']
 Y=t['targets']
-X_train,  X_test, Y_train, Y_test = train_test_split(X,Y,test_size=0.2,random_state=42)
+X_train,  X_test, Y_train, Y_test = train_test_split(X,Y.T,test_size=0.2,random_state=42)
 X_train, Y_train = shuffle(X_train, Y_train)
 Y_train = to_categorical(Y_train, 8)
 Y_test = to_categorical(Y_test, 8)
