@@ -37,7 +37,7 @@ network = fully_connected(network, 4096, activation='tanh')
 network = dropout(network, 0.5)
 network = fully_connected(network, 4096, activation='tanh')
 network = dropout(network, 0.5)
-network = fully_connected(network, 17, activation='softmax')
+network = fully_connected(network, 8, activation='softmax')
 network = regression(network, optimizer='momentum',
                      loss='categorical_crossentropy',
                      learning_rate=0.001)
