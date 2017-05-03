@@ -6,13 +6,17 @@ from tflearn.layers.conv import conv_2d, max_pool_2d
 from tflearn.layers.normalization import local_response_normalization
 from tflearn.layers.estimator import regression
 from tflearn.data_utils import shuffle, to_categorical
-
+import numpy as np
 from tflearn.datasets import cifar10
-(X, Y), (X_test, Y_test) = cifar10.load_data()
-X, Y = shuffle(X, Y)
-Y = to_categorical(Y, 10)
-Y_test = to_categorical(Y_test, 10)
-#X, Y = oxflower17.load_data(one_hot=True, resize_pics=(227, 227))
+from sklearn.model_selection import train_test_split
+
+X=np.load('features.npy')
+Y=np.load('targets.npy')
+(X_train, Y_train), X_test, Y_test = train_test_split(X,Y,test_size=0.2,random_state=42)
+X_train, Y_train = shuffle(X_train, Y_train)
+Y_train = to_categorical(Y_train, 8)
+Y_test = to_categorical(Y_test, 8)
+
 
 # Building 'AlexNet'
 network = input_data(shape=[None, 227, 227, 3])
@@ -37,9 +41,8 @@ network = regression(network, optimizer='momentum',
                      learning_rate=0.001)
 
 # Training
-model = tflearn.DNN(network, checkpoint_path='model_alexnet',max_checkpoints=1, tensorboard_verbose=2)
+model = tflearn.DNN(network,tensorboard_dir='/uhpc/roysam/aditi/alexnet', checkpoint_path='/uhpc/roysam/aditi/alexnet/model_alexnet',max_checkpoints=1, tensorboard_verbose=2)
 model.fit(X, Y, n_epoch=1000, validation_set=0.1, shuffle=True,
           show_metric=True, batch_size=64, snapshot_step=200,
           snapshot_epoch=False, run_id='training')
-
 
