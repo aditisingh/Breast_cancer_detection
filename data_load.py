@@ -8,7 +8,7 @@ targets=[]
 
 for file in files:
   if file.endswith('.png'):
-    name=os.path.join(100_alex/',file)
+    name=os.path.join('100_alex/',file)
     base=file[4:8]
     if(base=='B_A-'):
       class1=0
