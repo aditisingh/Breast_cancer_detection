@@ -52,5 +52,6 @@ y_pred=[]
 for i in range(len(X_test)):
   y_pred.(model.predict(X_test))
 
-  conf=confusion_matrix(Y_test, y_pred)
+conf=confusion_matrix(Y_test, y_pred)
+sio.savemat('confusion.mat',{'conf':conf})
   
