@@ -50,8 +50,19 @@ model.fit(X_train, Y_train, n_epoch=150, validation_set=0.1, shuffle=True,
 
 y_pred=[]
 for i in range(len(X_test)):
-  y_pred.append(model.predict(X_test))
-
-conf=confusion_matrix(Y_test, y_pred)
+  y_pred.append(model.predict(X_test[i].reshape((1,227,227,3))))
+  
+pred=[]
+for y in y_pred:
+  y1=y[0]
+  max=0,idx=0
+  for i in range(len(y1)):
+    if(y1[i]>max):
+      max=y1[i]
+      idx=i
+  pred.append(idx)
+  
+  
+conf=confusion_matrix(Y_test, pred)
 sio.savemat('confusion_matrix.mat',{'conf':conf})
   
