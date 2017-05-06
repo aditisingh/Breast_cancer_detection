@@ -29,5 +29,5 @@ for file in files:
     targets.append(class1)
     features.append(f)
 
-sio.savemat('features_new.mat',{'features':features})
-sio.savemat('targets_new.mat',{'targets':targets})
+sio.savemat('features.mat',{'features':features})
+sio.savemat('targets.mat',{'targets':targets})
