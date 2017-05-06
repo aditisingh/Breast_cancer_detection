@@ -1,3 +1,5 @@
+load('features.mat')
+load('targets.mat')
 features = double(features);
 targets = double(targets);
 class0=[];
@@ -54,3 +56,4 @@ TrainData_targets_400 = TrainData_400(:,4097);
 TestData_targets_400 = TestData_400(:,4097);
 TrainData_400 = TrainData_400(:,1:4096);
 TestData_400 = TestData_400(:,1:4096);
+% These together saved as CV_balanced_dataset 
