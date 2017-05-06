@@ -8,6 +8,7 @@ from tflearn.data_utils import shuffle, to_categorical
 import numpy as np
 import scipy.io as sio
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix
 
 f=sio.loadmat('features.mat')
 t=sio.loadmat('targets.mat')
@@ -16,7 +17,7 @@ Y=t['targets']
 X_train,  X_test, Y_train, Y_test = train_test_split(X,Y.T,test_size=0.2,random_state=42)
 X_train, Y_train = shuffle(X_train, Y_train)
 Y_train = to_categorical(Y_train, 8)
-Y_test = to_categorical(Y_test, 8)
+#Y_test = to_categorical(Y_test, 8)
 
 
 # Building 'AlexNet'
@@ -43,7 +44,13 @@ network = regression(network, optimizer='momentum',
 
 # Training
 model = tflearn.DNN(network,tensorboard_dir='/uhpc/roysam/aditi/alexnet', checkpoint_path='/uhpc/roysam/aditi/alexnet/model_alexnet',max_checkpoints=1, tensorboard_verbose=2)
-model.fit(X_train, Y_train, n_epoch=1000, validation_set=0.1, shuffle=True,
-          show_metric=True, batch_size=64, snapshot_step=200,
+model.fit(X_train, Y_train, n_epoch=150, validation_set=0.1, shuffle=True,
+          show_metric=True, batch_size=300, snapshot_step=200,
           snapshot_epoch=False, run_id='training')
 
+y_pred=[]
+for i in range(len(X_test)):
+  y_pred.(model.predict(X_test))
+
+  conf=confusion_matrix(Y_test, y_pred)
+  
