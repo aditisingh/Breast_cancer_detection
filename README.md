@@ -17,3 +17,5 @@ Add all files to the same folder. Run each of them in the following order:
 3. Run CV_balancing_code.m to treat the data imbalance. It outputs 4 files: training data, training data targets, test data and test data targets
 4. Use classifier_code.m and RandomForest_CV.m to classify the data using Linear SVM, Polynomial SVM and Random Forest.
 5. Run alexnet.py to get the trained AlexNet model and confusion matrix. 
+
+Results can be found at https://docs.google.com/document/d/1H7xVK7nwXcv11CYh7hl5F6pM0m218FQloAXQODP-Hsg/edit?usp=sharing.
