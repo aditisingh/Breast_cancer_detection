@@ -10,6 +10,8 @@ Pre-requirements:
 
 
 BreakHis dataset can be found at: http://web.inf.ufpr.br/vri/breast-cancer-database
+The VGG-16 weights are being used from Davi Frossard's webpage here: https://www.cs.toronto.edu/~frossard/vgg16/vgg16_weights.npz
+Here is a clean introductory tutorial by him: https://www.cs.toronto.edu/~frossard/post/vgg16/
 
 We try pre-trained network and classification vs training from scratch.
 Method1: Using pre-trained VGG-16 to get features.
