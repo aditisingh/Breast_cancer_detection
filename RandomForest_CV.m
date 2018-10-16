@@ -9,7 +9,6 @@ for i=1:1:8
         sum = sum+c_rf(i,j);
     end
 end
-
 for i=1:1:8
     rows_sum = sumabs(Co(i,:));
     cols_sum = sumabs(Co(:,i));
