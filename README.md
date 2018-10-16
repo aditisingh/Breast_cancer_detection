@@ -1,5 +1,5 @@
 # Breast_cancer_detection
-Using pre-trained model to classify images to detect cancerous cells
+Using pre-trained model to classify images to detect cancerous cells of breasts of women:
 
 Pre-requirements:
 1. Python2.7
